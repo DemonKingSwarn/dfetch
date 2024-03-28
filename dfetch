@@ -1,0 +1,28 @@
+#!/bin/sh
+
+hostname=$(uname -a | awk '{print $2}')
+username=$(whoami)
+
+os=$(uname -o | awk -F'/' '{print $1}')
+
+if [ $os = "GNU" ]; then
+    os="Arch Linux"
+    pkgs=$(echo "\033[0;35m packages \033[0m $(paru -Qq | wc -l)") 
+    wm="\033[0;35m wm \033[0m $XDG_SESSION_DESKTOP"
+else
+    os="MacOS"
+    pkgs=$(brew list | wc -l)
+    cask=$(brew list --cask | wc -l)
+    pkgs=$(echo "\033[0;35m packages \033[0m $pkgs (brew) $cask (cask)")
+    wm="Quartz Compositor"
+fi
+
+kern=$(uname -a | awk '{print $3}')
+up=$( uptime --pretty | awk '{print $2 " " $3}' | sed 's/,//')
+
+printf "\033[0;31m $username@$hostname \033[0m\n"
+printf "\033[0;35m os \033[0m $os\n"
+printf "\033[0;35m kernel \033[0m $kern\n"
+printf "$wm\n"
+printf "\033[0;35m uptime \033[0m $up\n"
+printf "$pkgs\n"
