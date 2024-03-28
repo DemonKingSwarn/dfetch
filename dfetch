@@ -20,9 +20,16 @@ fi
 kern=$(uname -a | awk '{print $3}')
 up=$( uptime --pretty | awk '{print $2 " " $3}' | sed 's/,//')
 
+mem_total=$(free -h | awk '/^Mem:/ {print $2}')
+mem_used=$(free -h | awk '/^Mem:/ {print $3}')
+swap_total=$(free -h | awk '/^Swap:/ {print $2}')
+swap_used=$(free -h | awk '/^Swap:/ {print $3}')
+
 printf "\033[0;31m $username@$hostname \033[0m\n"
 printf "\033[0;35m os \033[0m $os\n"
 printf "\033[0;35m kernel \033[0m $kern\n"
 printf "$wm\n"
 printf "\033[0;35m uptime \033[0m $up\n"
+printf "\033[0;35m memory \033[0m $mem_used / $mem_total\n"
+printf "\033[0;35m swap \033[0m $swap_used / $swap_total\n"
 printf "$pkgs\n"

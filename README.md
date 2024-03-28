@@ -2,4 +2,4 @@
 
 A simple neofetch like utility written in 100% shell
 
-![](https://media.discordapp.net/attachments/1199630396846002276/1222912671754485932/image.png?ex=6617f12d&is=66057c2d&hm=ff805862c0a036894d3f09baf4da02d1d7d00272430bf1badc693ddd95733285&=&format=webp&quality=lossless&width=501&height=270)
+![](https://media.discordapp.net/attachments/1199630396846002276/1222956865835761685/image.png?ex=66181a56&is=6605a556&hm=665b6b26f9045f88eac04d1f6bdf72d78ca6a3d41250fa241fd352e03ac37bab&=&format=webp&quality=lossless&width=825&height=326)
