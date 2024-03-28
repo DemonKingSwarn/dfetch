@@ -7,14 +7,14 @@ os=$(uname -o | awk -F'/' '{print $1}')
 
 if [ $os = "GNU" ]; then
     os="Arch Linux"
-    pkgs=$(echo "\033[0;35m packages \033[0m $(paru -Qq | wc -l)") 
-    wm="\033[0;35m wm \033[0m $XDG_SESSION_DESKTOP"
+    pkgs=$(echo "\033[0;35m packages\033[0m $(paru -Qq | wc -l)") 
+    wm="\033[0;35m wm\033[0m $XDG_SESSION_DESKTOP"
 else
     os="MacOS"
     pkgs=$(brew list | wc -l)
     cask=$(brew list --cask | wc -l)
-    pkgs=$(echo "\033[0;35m packages \033[0m $pkgs (brew) $cask (cask)")
-    wm="Quartz Compositor"
+    pkgs=$(echo "\033[0;35m packages\033[0m $pkgs (brew) $cask (cask)")
+    wm="\033[0;35m wm\033[0m Quartz Compositor"
 fi
 
 kern=$(uname -a | awk '{print $3}')
@@ -26,10 +26,10 @@ swap_total=$(free -h | awk '/^Swap:/ {print $2}')
 swap_used=$(free -h | awk '/^Swap:/ {print $3}')
 
 printf "\033[0;31m $username@$hostname \033[0m\n"
-printf "\033[0;35m os \033[0m $os\n"
-printf "\033[0;35m kernel \033[0m $kern\n"
+printf "\033[0;35m os\033[0m $os\n"
+printf "\033[0;35m kernel\033[0m $kern\n"
 printf "$wm\n"
-printf "\033[0;35m uptime \033[0m $up\n"
-printf "\033[0;35m memory \033[0m $mem_used / $mem_total\n"
-printf "\033[0;35m swap \033[0m $swap_used / $swap_total\n"
+printf "\033[0;35m uptime\033[0m $up\n"
+printf "\033[0;35m memory\033[0m $mem_used / $mem_total\n"
+printf "\033[0;35m swap\033[0m $swap_used / $swap_total\n"
 printf "$pkgs\n"
